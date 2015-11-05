@@ -11,7 +11,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-		<title>Power Nexus
+		<title>TweetCrunch
 		</title>
 		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 		{% if signincss %}
@@ -46,7 +46,7 @@
 					<span class="icon-bar">
 					</span>
 					</button>
-					<a class="navbar-brand" href="#">Power Elites
+					<a class="navbar-brand" href="#">TweetCrunch
 					</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
@@ -55,14 +55,12 @@
 							<a href="{{ url_for('home') }}">Home
 							</a>
 						</li>
-						<li class="{{exploreclass}}">
-							<a href="">Explore
+						<li class="{{crunchclass}}">
+							<a href="{{ url_for('crunch') }}">Crunch Now!
 							</a>
 						</li>
-						<li class="{{helpclass}}">
-							<a href="">Help
-							</a>
-						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
 						<li class="{{aboutclass}}">
 							<a href="">About
 							</a>
@@ -72,27 +70,7 @@
 							</a>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						{% if session.userid %}
-						<li class="{{loginclass}}">
-							<a>{{session.userid}}</a>
-						</li>
-						{% endif %}
-
-						<li class="{{loginclass}}">
-							{% if not session.userid %}
-    						<a href="{{ url_for('login') }}">Login</a>
-  							{% else %}
-    						<a href="{{ url_for('logout') }}">Logout</a>
-  							{% endif %}
-						</li>
-						{% if not session.userid %}
-						<li class="{{signupclass}}">
-							<a href="{{ url_for('signup') }}">Sign up
-							</a>
-						</li>
-						{% endif %}
-					</ul>
+					<!--
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
@@ -101,6 +79,7 @@
 						Go!
 						</button>
 					</form>
+				-->
 				</div>
 				<!--//-->
 			</div>
@@ -126,7 +105,7 @@
 		<hr/>
 		</div>
 		<footer>
-			<p class="text-center">© ICTD Lab, IIT-Delhi 2015
+			<p class="text-center">© IIT-Delhi 2015. Created as part of assignment in SML-856 Business Intelligence Course.
 			</p>
 		</footer>
 	

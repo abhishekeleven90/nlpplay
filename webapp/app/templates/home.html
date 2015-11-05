@@ -3,20 +3,17 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="starter-template">
-		<h2>Power Elites is a free database of who-knows-who at the heights of business and government.
+		<h2>
+			TweetCrunch lets you do sentiment analysis and profanity analyslis on latest tweets.
 		</h2>
-		<p class="lead">We're a naive watchdog network connecting the dots between the India's 1%.
+		<p class="lead">
+			TweetCrunch - <i>collects, analyzes, displays</i> - on-the-fly, making this an invaluable tool to know the live pulse of any hashtag.
 		</p>
 	</div>
 </div>
-<div class="starter-template">
-	<h2>Investigate cronyism, conflicts of interest, and systemic corruption.
-	</h2>
-	<p class="lead">Who do the wealthiest Indians donate their money to?
-		<br/>
-		Where did Lok Sabha officials work before they were appointed?
-		<br/>
-		Which business tycoons are married to politicians? Who do they lobby for?
-	</p>
-</div>
+<div class="starter-template" >
+		<p>
+			<a class="btn btn-primary btn-lg" href="{{ url_for('crunch')}}">Crunch Now!</a>
+		</p>
+	</div>
 {% endblock %}
