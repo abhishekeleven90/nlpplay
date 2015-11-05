@@ -1,0 +1,30 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+    <div class="starter-template" align="center" >
+    <h2>Tweets Crunched</h2>
+    <br/>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tweet</th>
+          <th>Sentiment</th>
+          <th>Profanity</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tbody>
+        {% for item in reslist %}
+         <tr>
+          <th scope="row">{{item.ourid}}</th>
+          <td><p class="text-left">{{item.text}}</p></td>
+          <td><p class="text-left">{{item.sentilabel}}, {{item.sentiprob}}</p></td>
+          <td><p class="text-left">{{item.profanelabel}}, {{item.profaneprob}}</p></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    </div>
+{% endblock %}
