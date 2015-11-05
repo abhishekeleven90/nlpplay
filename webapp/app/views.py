@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, flash, redirect, session, g, request, url_for, abort
 from monkey import *
 from forms import CrunchForm
+#from tweets import thisIsSparta
     
 @app.route('/')
 @app.route('/home/')
@@ -20,7 +21,7 @@ def not_permitted(e):
 
 @app.route('/crunchresult/')
 def crunchresult():
-    reslist = getAllAnalysis(["this is awesome. i am loving this! though the time is running out. though the time is running out. though the time is running out","no","haha","never"])
+    reslist = getAllAnalysis(["this is awesome"],["12347e74"])
     return render_template("crunch.html", homeclass="active", temptext="See command line",
         reslist=reslist)
 
@@ -30,8 +31,10 @@ def crunch():
     if form.validate_on_submit():
         try:
             hashtag = form.hashtag.data
-            flash('Successfully got the hash tag '+hashtag)
-            return redirect('home')
+            tweetlist, datelist = thisIsSparta(hashtag)
+            reslist = getAllAnalysis(tweetlist,datelist)
+            return render_template("crunch.html", homeclass="active", temptext="See command line",
+        reslist=reslist)
         except:
             flash('Error in your form submission')
     else:

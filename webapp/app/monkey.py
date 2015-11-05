@@ -2,13 +2,14 @@ import requests
 import json
 
 class Sentiment:
-   def __init__(self, text, ourid):
+   def __init__(self, text, ourid, dt):
       self.text = text
       self.ourid = ourid
+      self.dt = dt
    #sentilabel, sentiprob
    #profanelabel, profaneprob   
 
-def getAllAnalysis(textlist):
+def getAllAnalysis(textlist,datelist):
    
    data = {
    'text_list': textlist
@@ -19,7 +20,7 @@ def getAllAnalysis(textlist):
    i = 0
    for t in textlist:
       i = i+1
-      s=Sentiment(t,i)
+      s=Sentiment(t,i,datelist[i-1])
       toret.append(s)
 
    response = requests.post(

@@ -18,7 +18,10 @@
         {% for item in reslist %}
          <tr>
           <th scope="row">{{item.ourid}}</th>
-          <td><p class="text-left">{{item.text}}</p></td>
+          <td>
+            <p class="text-left">{{item.text}}</p>
+            <p class="text-left">{{item.dt}}</p>
+          </td>
           <td><p class="text-left">{{item.sentilabel}}, {{item.sentiprob}}</p></td>
           <td><p class="text-left">{{item.profanelabel}}, {{item.profaneprob}}</p></td>
         </tr>
