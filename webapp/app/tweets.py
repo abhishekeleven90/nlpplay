@@ -22,8 +22,8 @@ def thisIsSparta(sparta_tag) :
         dates.append(str(tweet.created_at))
         texts.append(tweet.text)
 
-    #print dates
-    #print texts
+    print dates
+    print texts
 
     return dates, texts
 

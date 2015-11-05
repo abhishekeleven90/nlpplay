@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, flash, redirect, session, g, request, url_for, abort
 from monkey import *
 from forms import CrunchForm
-#from tweets import thisIsSparta
+from tweets import thisIsSparta
     
 @app.route('/')
 @app.route('/home/')
@@ -31,10 +31,13 @@ def crunch():
     if form.validate_on_submit():
         try:
             hashtag = form.hashtag.data
-            tweetlist, datelist = thisIsSparta(hashtag)
+            print hashtag
+            datelist,tweetlist = thisIsSparta(hashtag)
+            print datelist
+            print tweetlist
             reslist = getAllAnalysis(tweetlist,datelist)
-            return render_template("crunch.html", homeclass="active", temptext="See command line",
-        reslist=reslist)
+            print reslist
+            return render_template("crunch.html", crunchclass="active",reslist=reslist)
         except:
             flash('Error in your form submission')
     else:
