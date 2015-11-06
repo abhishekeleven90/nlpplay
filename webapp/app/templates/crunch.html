@@ -2,7 +2,11 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="starter-template" align="center" >
-    <h2>Tweets Crunched</h2>
+    <h2>Tweets Crunched for {{hashtag}}</h2>
+    <h3>
+      Positive: {{pos}} %,
+      Negative: {{neg}} %
+    </h3>
     <br/>
     <table class="table table-striped">
       <thead>

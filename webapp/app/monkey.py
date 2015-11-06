@@ -30,10 +30,20 @@ def getAllAnalysis(textlist,datelist):
            'Content-Type': 'application/json'})
    
    json1 = json.loads(response.text)
+
+   pos = 0
+   neg = 0
+   neu = 0
    
    i = 0;
    for x in json1['result']:
       toret[i].sentilabel = x[0]['label']
+      if(toret[i].sentilabel=='neutral'):
+         neu = neu+1
+      if(toret[i].sentilabel=='positive'):
+         pos = pos+1
+      if(toret[i].sentilabel=='negative'):
+         neg = neg+1
       toret[i].sentiprob = x[0]['probability']
       i = i +1
    
@@ -55,6 +65,6 @@ def getAllAnalysis(textlist,datelist):
 
 
 
-   return toret
+   return toret, pos, neg, neu
 
 

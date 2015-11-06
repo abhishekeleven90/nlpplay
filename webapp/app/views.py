@@ -31,13 +31,20 @@ def crunch():
     if form.validate_on_submit():
         try:
             hashtag = form.hashtag.data
-            print hashtag
+            #print hashtag
             datelist,tweetlist = thisIsSparta(hashtag)
-            print datelist
-            print tweetlist
-            reslist = getAllAnalysis(tweetlist,datelist)
-            print reslist
-            return render_template("crunch.html", crunchclass="active",reslist=reslist)
+            #print datelist
+            #print tweetlist
+            reslist,pos,neg,neu = getAllAnalysis(tweetlist,datelist)
+            print 'ANS!!'
+            print pos,neg,neu
+            tot=float(int(pos)+int(neg))
+            print tot
+            pos=str(round((pos/tot)*100,2))
+            neg=str(round((neg/tot)*100,2))
+            #print reslist
+            return render_template("crunch.html", crunchclass="active",reslist=reslist,pos=pos,
+                neg=neg,hashtag=hashtag)
         except:
             flash('Error in your form submission')
     else:

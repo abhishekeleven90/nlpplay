@@ -15,7 +15,7 @@ def thisIsSparta(sparta_tag) :
     texts = []
 
 
-    tweets = tweepy.Cursor(api.search, q=sparta_tag).items(20)
+    tweets = tweepy.Cursor(api.search, q=sparta_tag, lang="en").items(50)
 
     for tweet in tweets:
         #print tweet.created_at, tweet.text, "\n"
